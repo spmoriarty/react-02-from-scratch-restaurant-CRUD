@@ -19,6 +19,7 @@ export default function AuthPage({
 
     const user = await signUp(email, password);
     setUser(user);
+
   }
 
   return (
@@ -28,13 +29,13 @@ export default function AuthPage({
       <form>
         <label>
                   Email:
-          <input required type='email' onSubmit={e => setEmail(e.target.value)} name='email' />
+          <input required type='email' onChange={e => setEmail(e.target.value)} value='email' />
         </label>
         <label>Password:
-          <input required type='password' onSubmit={e => setPassword(e.target.value)} name='password' />
+          <input required type='password' onChange={e => setPassword(e.target.value)} value='password' />
         </label>
-        <button type='button' onSubmit={handleSignUp}>Sign Up</button>
-        <button type='button' onSubmit={handleSignIn}>Sign In</button>
+        <button type='submit' onChange={handleSignUp}>Sign Up</button>
+        <button type='submit' onChange={handleSignIn}>Sign In</button>
       </form>
     </div><hr /></>
   );

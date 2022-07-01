@@ -5,7 +5,8 @@ export function getUser() {
 }
 
 export async function signUp(email, password) {
-  const response = await client.aught.signUp({ email, password });
+  const response = await client.auth.signUp({ email, password });
+  
   return response.user;
 
 }

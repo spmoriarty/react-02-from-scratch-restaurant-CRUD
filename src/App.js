@@ -12,7 +12,8 @@ import Menu from './Menu';
 
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('');
+  console.log(user);
 
 
   useEffect(() => {
@@ -35,16 +36,16 @@ export default function App() {
           <button onClick={handleLogout} >Logout</button>
         </header>
         <Switch>
-          {/* <Route exact path='/'>
+          <Route exact path='/'>
             { 
               user 
-                ? <Redirect to='/menu'/> : <AuthPage setUser={setUser} />
+                ? <Redirect to='/Menu'/> : <AuthPage setUser={setUser} />
             }
-          </Route> */}
+          </Route>
           <Route exact path='/items/:id'> 
             {/* <Items /> */}
           </Route>
-          <Route exact path='/'>
+          <Route exact path='/Menu'>
             <Menu />
           </Route>
         </Switch>
