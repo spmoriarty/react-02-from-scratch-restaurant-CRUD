@@ -14,7 +14,7 @@ export default function Menu() {
 
     await createMenu({ entree, side, drink, comment 
     });
-    history.push(Menu);
+    history.push('food_menu');
   }
 
   return (
@@ -43,8 +43,9 @@ export default function Menu() {
         </select>
         <label>
               Special Instructions:
-          <textarea required onChange={e => setComment(e.target.value)}/>
+          <textarea onChange={e => setComment(e.target.value)}/>
         </label>
+        <button>Submit</button>
         
       </form>
     </div>

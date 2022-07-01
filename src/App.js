@@ -8,6 +8,7 @@ import {
 import { useEffect, useState } from 'react';
 import AuthPage from './authPage';
 import { getUser, logout } from './services/fetch-utils';
+import Menu from './Menu';
 
 
 export default function App() {
@@ -34,17 +35,17 @@ export default function App() {
           <button onClick={handleLogout} >Logout</button>
         </header>
         <Switch>
-          <Route exact path='/'>
+          {/* <Route exact path='/'>
             { 
               user 
                 ? <Redirect to='/menu'/> : <AuthPage setUser={setUser} />
             }
-          </Route>
+          </Route> */}
           <Route exact path='/items/:id'> 
             {/* <Items /> */}
           </Route>
-          <Route exact path='/menu'>
-            {/* <Menu /> */}
+          <Route exact path='/'>
+            <Menu />
           </Route>
         </Switch>
       </div>
