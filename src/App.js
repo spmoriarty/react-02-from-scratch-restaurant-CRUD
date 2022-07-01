@@ -5,13 +5,13 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import { useEffect } from 'react/cjs/react.production.min';
+import { useEffect, useState } from 'react';
 import AuthPage from './authPage';
 import { getUser } from './services/fetch-utils';
 
 
 export default function App() {
-const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
 
 
   useEffect(() => {
