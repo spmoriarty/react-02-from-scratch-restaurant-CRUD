@@ -22,19 +22,20 @@ export default function AuthPage({
   }
 
   return (
-    <div className='authorize'>
+    <><div className='authorize'>
       <h1>Welcome to the food Bazar</h1>
+      <hr />
       <form>
         <label>
-                    Email:
-          <input required type='email' onChange={e => setEmail(e.target.value)} name='email'/>
+                  Email:
+          <input required type='email' onSubmit={e => setEmail(e.target.value)} name='email' />
         </label>
         <label>Password:
-          <input required type='password' onChange={e => setPassword(e.target.value)} name='password'/>
+          <input required type='password' onSubmit={e => setPassword(e.target.value)} name='password' />
         </label>
         <button type='button' onSubmit={handleSignUp}>Sign Up</button>
         <button type='button' onSubmit={handleSignIn}>Sign In</button>
       </form>
-    </div>
+    </div><hr /></>
   );
 }
