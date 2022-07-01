@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import AuthPage from './authPage';
-import { getUser } from './services/fetch-utils';
+import { getUser, logout } from './services/fetch-utils';
 
 
 export default function App() {
@@ -21,10 +21,18 @@ export default function App() {
     }
     fetch();
   }, []);
+
+  async function handleLogout() {
+    await logout();
+    setUser(null);
+  }
   
   return (
     <Router>
       <div className='App'>
+        <header>
+          <button onClick={handleLogout} >Logout</button>
+        </header>
         <Switch>
           <Route exact path='/'>
             { 
@@ -35,8 +43,8 @@ export default function App() {
           <Route exact path='/items/:id'> 
             {/* <Items /> */}
           </Route>
-          <Route exact path='/create'>
-            {/* <Create /> */}
+          <Route exact path='/menu'>
+            {/* <Menu /> */}
           </Route>
         </Switch>
       </div>
