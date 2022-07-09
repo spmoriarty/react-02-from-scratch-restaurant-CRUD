@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,6 +34,12 @@ export default function App() {
       <div className='App'>
         <header>
           <button onClick={handleLogout} >Logout</button>
+          {
+           
+            <><Link to="/Menu">Menu</Link><Link to="/Order">Order</Link></>
+          
+           
+          }
         </header>
         <Switch>
           <Route exact path='/'>
@@ -45,7 +51,7 @@ export default function App() {
           <Route exact path='/items/:id'> 
             {/* <Items /> */}
           </Route>
-          <Route exact path='/Menu'>
+          <Route exact path='/menu'>
             <Menu />
           </Route>
         </Switch>

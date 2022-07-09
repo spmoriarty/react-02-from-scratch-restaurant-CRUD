@@ -3,6 +3,8 @@ import { signIn, signUp } from './services/fetch-utils';
 
 export default function AuthPage({
   setUser
+
+  
 }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,10 +31,10 @@ export default function AuthPage({
       <form>
         <label>
                   Email:
-          <input required type='email' onChange={e => setEmail(e.target.value)} value='email' />
+          <input required type='email' onChange={e => setEmail(e.target.value)} />
         </label>
         <label>Password:
-          <input required type='password' onChange={e => setPassword(e.target.value)} value='password' />
+          <input required type='password' onChange={e => setPassword(e.target.value)} />
         </label>
         <button type='submit' onChange={handleSignUp}>Sign Up</button>
         <button type='submit' onChange={handleSignIn}>Sign In</button>

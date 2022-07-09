@@ -14,7 +14,7 @@ export default function Menu() {
 
     await createMenu({ entree, side, drink, comment 
     });
-    history.push('food_menu');
+    history.push('/Menu');
   }
 
   return (
@@ -30,9 +30,15 @@ export default function Menu() {
           <option>Fish</option>
           <option>Vegetarian</option>
         </select>
-        <label>Choose a beverage
-          <input required onChange={e => setDrink(e.target.value)}/>
+        <label>
+          Choose a beverage
         </label>
+        <select required onChange={e => setDrink(e.target.value)}>
+          <option>Soda</option>
+          <option>Milk</option>
+          <option>OJ</option>
+          <option>Water</option>
+        </select>
         <label>Choose a side
         </label>
         <select required onChange={e => setSide(e.target.value)}>
