@@ -4,17 +4,18 @@ import { useHistory } from 'react-router-dom';
 
 export default function Menu() {
   const history = useHistory();
-  const [entree, setEntree] = useState('');
-  const [side, setSide] = useState('');
-  const [drink, setDrink] = useState('');
-  const [comment, setComment] = useState('Special request?');
+  const [entree, setEntree] = useState('meat');
+  const [side, setSide] = useState('veggies');
+  const [drink, setDrink] = useState('soda');
+  const [comments, setComment] = useState('Special request?');
+  
  
   async function handleSubmit(e) {
     e.preventDefault();
-
-    await createMenu({ entree, side, drink, comment 
+    
+    await createMenu({ entree, side, drink, comments 
     });
-    history.push('/Menu');
+    history.push('/Order');
   }
 
   return (
@@ -25,10 +26,10 @@ export default function Menu() {
             Entree: Pick one of 4 daily special types
         </label>
         <select required onChange={e => setEntree(e.target.value)}>
-          <option>Meat</option>
-          <option>Poultry</option>
-          <option>Fish</option>
-          <option>Vegetarian</option>
+          <option value='meat'>Meat</option>
+          <option value='poultry'>Poultry</option>
+          <option value='fish'>Fish</option>
+          <option value='vegetarian'>Vegetarian</option>
         </select>
         <label>
           Choose a beverage

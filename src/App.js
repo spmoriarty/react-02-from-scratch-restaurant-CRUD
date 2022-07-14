@@ -9,11 +9,11 @@ import { useEffect, useState } from 'react';
 import AuthPage from './authPage';
 import { getUser, logout } from './services/fetch-utils';
 import Menu from './Menu';
-
+import Order from './Order';
 
 export default function App() {
   const [user, setUser] = useState('');
-  console.log(user);
+  
 
 
   useEffect(() => {
@@ -35,10 +35,10 @@ export default function App() {
         <header>
           <button onClick={handleLogout} >Logout</button>
           {
-           
-            <><Link to="/Menu">Menu</Link><Link to="/Order">Order</Link></>
-          
-           
+            <><div><Link to="/Menu">Menu</Link></div>
+              <div><Link to="/Order">Orders</Link></div></>
+            
+        
           }
         </header>
         <Switch>
@@ -48,8 +48,8 @@ export default function App() {
                 ? <Redirect to='/Menu'/> : <AuthPage setUser={setUser} />
             }
           </Route>
-          <Route exact path='/items/:id'> 
-            {/* <Items /> */}
+          <Route exact path='/Order'> 
+            <Order />
           </Route>
           <Route exact path='/menu'>
             <Menu />

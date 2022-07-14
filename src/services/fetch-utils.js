@@ -23,13 +23,16 @@ export async function logout() {
 }
 
 export async function createMenu(menu) {
+  
   const response = await client.from('food_menu').insert([menu]);
 }
 
 export async function getMenu() {
-  const response = await client.from('food_menu').select('*');
+  const { data } = await client.from('food_menu').select('*');
+  console.log(data);
+  return data;
 }
 
 export async function getOrder(id) {
   const response = await client.from('food_menu').select().match({ id }).single();
-}
+} 

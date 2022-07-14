@@ -11,34 +11,35 @@ export default function AuthPage({
 
   async function handleSignIn(e) {
     e.preventDefault();
-
     const user = await signIn(email, password);
     setUser(user);
   }
-
+  console.log('hello!');
   async function handleSignUp(e) {
     e.preventDefault();
-
+    
+    console.log(email, password);
     const user = await signUp(email, password);
     setUser(user);
 
   }
 
   return (
-    <><div className='authorize'>
+    <div className='authorize'>
       <h1>Welcome to the food Bazar</h1>
       <hr />
-      <form>
+      <form onSubmit={handleSignUp} >
         <label>
-                  Email:
+        Email:
           <input required type='email' onChange={e => setEmail(e.target.value)} />
         </label>
         <label>Password:
           <input required type='password' onChange={e => setPassword(e.target.value)} />
         </label>
-        <button type='submit' onChange={handleSignUp}>Sign Up</button>
-        <button type='submit' onChange={handleSignIn}>Sign In</button>
+        <button type='submit'>Sign Up</button>
+        <button type='submit'>Sign In</button>
       </form>
-    </div><hr /></>
+    </div>
+    
   );
 }
