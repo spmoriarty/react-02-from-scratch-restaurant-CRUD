@@ -9,7 +9,7 @@ export default function Order() {
   useEffect(() => {
     async function grab() {
       const data = await getMenu();
-      console.log(data);
+      
       setOrders(data);
     }
     grab();
